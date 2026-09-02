@@ -4,167 +4,307 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mobilization Fund Process Calendar</title>
+<title>CMU Internal Process Calendar</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f4f6f8;
-        color: #222;
-    }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f5f7;
+    color: #222;
+}
+
+.container {
+    width: 95%;
+    max-width: 1250px;
+    margin: 25px auto;
+}
+
+/* HEADER */
+
+.header {
+    background: linear-gradient(135deg, #17365d, #244f7d);
+    color: white;
+    padding: 28px;
+    border-radius: 16px 16px 0 0;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: .5px;
+}
+
+.header p {
+    margin: 8px 0 0;
+    font-size: 15px;
+    opacity: .9;
+}
+
+.internal {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 15px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.15);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* TABS */
+
+.tabs {
+    display: flex;
+    background: white;
+    padding: 15px;
+    gap: 12px;
+}
+
+.tab {
+    flex: 1;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    background: #e8edf3;
+    color: #17365d;
+}
+
+.tab.active {
+    background: #17365d;
+    color: white;
+}
+
+/* CONTENT */
+
+.content {
+    background: white;
+    padding: 25px;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.cycle-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.cycle-title h2 {
+    margin: 0;
+    color: #17365d;
+}
+
+.cycle-title p {
+    margin: 8px 0;
+    color: #666;
+}
+
+/* CALENDAR */
+
+.calendar-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #17365d;
+    margin: 20px 0 12px;
+}
+
+.weekdays,
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.weekday {
+    background: #17365d;
+    color: white;
+    padding: 12px 5px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.day {
+    min-height: 125px;
+    border: 1px solid #d8dce1;
+    padding: 8px;
+    background: #fff;
+    position: relative;
+}
+
+.day.empty {
+    background: #f7f8f9;
+}
+
+.date {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* EVENTS */
+
+.event {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 7px;
+    font-size: 10px;
+    line-height: 1.35;
+    font-weight: bold;
+}
+
+.accreditation {
+    background: #e8def8;
+    border-left: 5px solid #674ea7;
+}
+
+.processing {
+    background: #d9ead3;
+    border-left: 5px solid #38761d;
+}
+
+.hr {
+    background: #cfe2f3;
+    border-left: 5px solid #1155cc;
+}
+
+.sales {
+    background: #fff2cc;
+    border-left: 5px solid #bf9000;
+}
+
+.invoice {
+    background: #fce5cd;
+    border-left: 5px solid #e69138;
+}
+
+.validation {
+    background: #d9d2e9;
+    border-left: 5px solid #351c75;
+}
+
+.crediting {
+    background: #b6d7a8;
+    border: 2px solid #274e13;
+    color: #274e13;
+    font-size: 11px;
+}
+
+/* DETAIL SECTION */
+
+.details {
+    margin-top: 35px;
+}
+
+.details h2 {
+    color: #17365d;
+    border-bottom: 2px solid #17365d;
+    padding-bottom: 8px;
+}
+
+.process-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.process-header {
+    background: #eef2f6;
+    padding: 15px;
+    font-weight: bold;
+    color: #17365d;
+}
+
+.process-body {
+    padding: 18px;
+}
+
+.process-body strong {
+    color: #17365d;
+}
+
+.process-body ul {
+    margin-top: 7px;
+    line-height: 1.6;
+}
+
+/* LEGEND */
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    padding: 15px;
+    background: #f7f8fa;
+    border-radius: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+}
+
+.legend-box {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    padding: 25px 10px;
+    color: #777;
+    font-size: 11px;
+}
+
+/* MOBILE */
+
+@media(max-width: 750px) {
 
     .container {
-        max-width: 1100px;
-        margin: 30px auto;
-        padding: 20px;
-    }
-
-    .header {
-        background: #17365d;
-        color: white;
-        padding: 25px;
-        border-radius: 15px 15px 0 0;
-        text-align: center;
+        width: 98%;
     }
 
     .header h1 {
-        margin: 0;
-        font-size: 30px;
+        font-size: 21px;
     }
 
-    .header p {
-        margin: 8px 0 0;
-        font-size: 16px;
-    }
-
-    .calendar {
-        background: white;
-        border-radius: 0 0 15px 15px;
-        padding: 20px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    }
-
-    .month {
-        text-align: center;
-        font-size: 25px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .weekdays,
-    .days {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-    }
-
-    .weekday {
-        text-align: center;
-        font-weight: bold;
-        padding: 12px 5px;
-        background: #e9eef5;
+    .tabs {
+        flex-direction: column;
     }
 
     .day {
-        min-height: 105px;
-        border: 1px solid #ddd;
-        padding: 8px;
-        position: relative;
-        background: white;
-    }
-
-    .date {
-        font-weight: bold;
-        font-size: 16px;
+        min-height: 90px;
+        padding: 5px;
     }
 
     .event {
-        margin-top: 8px;
-        padding: 7px;
-        border-radius: 6px;
-        font-size: 11px;
-        font-weight: bold;
-        line-height: 1.3;
+        font-size: 8px;
+        padding: 5px;
     }
 
-    .fund {
-        background: #ffe699;
-        border-left: 5px solid #bf9000;
+    .date {
+        font-size: 12px;
     }
 
-    .process {
-        background: #d9ead3;
-        border-left: 5px solid #38761d;
+    .weekday {
+        font-size: 9px;
+        padding: 8px 2px;
     }
-
-    .deadline {
-        background: #f4cccc;
-        border-left: 5px solid #990000;
-    }
-
-    .legend {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin-top: 25px;
-    }
-
-    .legend-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 13px;
-    }
-
-    .box {
-        width: 15px;
-        height: 15px;
-        border-radius: 3px;
-    }
-
-    .fund-box {
-        background: #ffe699;
-    }
-
-    .process-box {
-        background: #d9ead3;
-    }
-
-    .deadline-box {
-        background: #f4cccc;
-    }
-
-    .info {
-        margin-top: 25px;
-        padding: 20px;
-        background: #f8f9fa;
-        border-radius: 10px;
-    }
-
-    .info h2 {
-        margin-top: 0;
-        color: #17365d;
-    }
-
-    @media (max-width: 700px) {
-        .day {
-            min-height: 90px;
-            padding: 5px;
-        }
-
-        .event {
-            font-size: 9px;
-        }
-
-        .header h1 {
-            font-size: 22px;
-        }
-    }
+}
 </style>
 </head>
 
@@ -172,311 +312,1158 @@
 
 <div class="container">
 
-    <div class="header">
-        <h1>Mobilization Fund Process Calendar</h1>
-        <p>September 2026 – October 5, 2026</p>
+<!-- HEADER -->
+
+<div class="header">
+
+    <h1>CMU INTERNAL PROCESS CALENDAR</h1>
+
+    <p>
+        Cost Management Unit → Sales
+    </p>
+
+    <div class="internal">
+        INTERNAL PROCESS POV • MOBILIZATION FUND PROCESSING
     </div>
 
-    <div class="calendar">
+</div>
 
-        <div class="month">
-            SEPTEMBER 2026
-        </div>
 
-        <div class="weekdays">
-            <div class="weekday">SUN</div>
-            <div class="weekday">MON</div>
-            <div class="weekday">TUE</div>
-            <div class="weekday">WED</div>
-            <div class="weekday">THU</div>
-            <div class="weekday">FRI</div>
-            <div class="weekday">SAT</div>
-        </div>
+<!-- TABS -->
 
-        <div class="days">
+<div class="tabs">
 
-            <!-- August 30-31 -->
-            <div class="day"></div>
-            <div class="day"></div>
+    <button class="tab active" onclick="showCycle('sep20', this)">
+        SEPTEMBER 20 MF PROCESSING
+    </button>
 
-            <!-- September 1 -->
-            <div class="day">
-                <div class="date">1</div>
-                <div class="event process">
-                    PROCESSING<br>
-                    Prepare requirements
-                </div>
-            </div>
+    <button class="tab" onclick="showCycle('oct5', this)">
+        OCTOBER 5 MF PROCESSING
+    </button>
 
-            <!-- 2 -->
-            <div class="day">
-                <div class="date">2</div>
-            </div>
+</div>
 
-            <!-- 3 -->
-            <div class="day">
-                <div class="date">3</div>
-            </div>
 
-            <!-- 4 -->
-            <div class="day">
-                <div class="date">4</div>
-                <div class="event deadline">
-                    FINAL CHECK<br>
-                    Before 5th cycle
-                </div>
-            </div>
+<!-- MAIN CONTENT -->
 
-            <!-- 5 -->
-            <div class="day">
-                <div class="date">5</div>
-                <div class="event fund">
-                    MOBILIZATION FUND<br>
-                    5TH CYCLE
-                </div>
-            </div>
+<div class="content">
 
-            <!-- 6 -->
-            <div class="day">
-                <div class="date">6</div>
-                <div class="event process">
-                    POST-5TH<br>
-                    Processing / Monitoring
-                </div>
-            </div>
 
-            <!-- 7 -->
-            <div class="day">
-                <div class="date">7</div>
-            </div>
+<!-- ================= SEPTEMBER 20 ================= -->
 
-            <!-- 8 -->
-            <div class="day">
-                <div class="date">8</div>
-            </div>
+<div id="sep20" class="cycle">
 
-            <!-- 9 -->
-            <div class="day">
-                <div class="date">9</div>
-            </div>
+<div class="cycle-title">
 
-            <!-- 10 -->
-            <div class="day">
-                <div class="date">10</div>
-            </div>
+    <h2>SEPTEMBER 20, 2026</h2>
 
-            <!-- 11 -->
-            <div class="day">
-                <div class="date">11</div>
-            </div>
+    <p>
+        Mobilization Fund Processing — September 20 Cycle
+    </p>
 
-            <!-- 12 -->
-            <div class="day">
-                <div class="date">12</div>
-            </div>
+</div>
 
-            <!-- 13 -->
-            <div class="day">
-                <div class="date">13</div>
-            </div>
 
-            <!-- 14 -->
-            <div class="day">
-                <div class="date">14</div>
-                <div class="event deadline">
-                    FINAL CHECK<br>
-                    Before 20th cycle
-                </div>
-            </div>
+<div class="calendar-title">
+    SEPTEMBER 2026 PROCESS CALENDAR
+</div>
 
-            <!-- 15 -->
-            <div class="day">
-                <div class="date">15</div>
-                <div class="event process">
-                    VALIDATION<br>
-                    Fund requirements
-                </div>
-            </div>
 
-            <!-- 16 -->
-            <div class="day">
-                <div class="date">16</div>
-            </div>
+<div class="weekdays">
 
-            <!-- 17 -->
-            <div class="day">
-                <div class="date">17</div>
-            </div>
+    <div class="weekday">SUN</div>
+    <div class="weekday">MON</div>
+    <div class="weekday">TUE</div>
+    <div class="weekday">WED</div>
+    <div class="weekday">THU</div>
+    <div class="weekday">FRI</div>
+    <div class="weekday">SAT</div>
 
-            <!-- 18 -->
-            <div class="day">
-                <div class="date">18</div>
-            </div>
+</div>
 
-            <!-- 19 -->
-            <div class="day">
-                <div class="date">19</div>
-                <div class="event deadline">
-                    FINAL CHECK<br>
-                    Before 20th cycle
-                </div>
-            </div>
 
-            <!-- 20 -->
-            <div class="day">
-                <div class="date">20</div>
-                <div class="event fund">
-                    MOBILIZATION FUND<br>
-                    20TH CYCLE
-                </div>
-            </div>
+<div class="days">
 
-            <!-- 21 -->
-            <div class="day">
-                <div class="date">21</div>
-                <div class="event process">
-                    POST-20TH<br>
-                    Processing / Monitoring
-                </div>
-            </div>
+<!-- AUG 30 -->
+<div class="day empty"></div>
 
-            <!-- 22 -->
-            <div class="day">
-                <div class="date">22</div>
-            </div>
+<!-- AUG 31 -->
+<div class="day empty"></div>
 
-            <!-- 23 -->
-            <div class="day">
-                <div class="date">23</div>
-            </div>
 
-            <!-- 24 -->
-            <div class="day">
-                <div class="date">24</div>
-            </div>
+<!-- SEP 1 -->
 
-            <!-- 25 -->
-            <div class="day">
-                <div class="date">25</div>
-            </div>
+<div class="day">
+    <div class="date">1</div>
+</div>
 
-            <!-- 26 -->
-            <div class="day">
-                <div class="date">26</div>
-            </div>
 
-            <!-- 27 -->
-            <div class="day">
-                <div class="date">27</div>
-            </div>
+<!-- SEP 2 -->
 
-            <!-- 28 -->
-            <div class="day">
-                <div class="date">28</div>
-            </div>
+<div class="day">
 
-            <!-- 29 -->
-            <div class="day">
-                <div class="date">29</div>
-                <div class="event process">
-                    PREPARATION<br>
-                    Next cycle
-                </div>
-            </div>
+    <div class="date">2</div>
 
-            <!-- 30 -->
-            <div class="day">
-                <div class="date">30</div>
-                <div class="event deadline">
-                    FINAL CHECK<br>
-                    October 5 Cycle
-                </div>
-            </div>
+    <div class="event accreditation">
+        ACCREDITATION<br>
+        Submission of Database<br>
+        Qualified from Aug 16–30
+    </div>
 
-            <!-- Oct 1 -->
-            <div class="day">
-                <div class="date">OCT 1</div>
-                <div class="event process">
-                    REQUIREMENTS<br>
-                    Validation
-                </div>
-            </div>
+</div>
 
-            <!-- Oct 2 -->
-            <div class="day">
-                <div class="date">OCT 2</div>
-            </div>
 
-            <!-- Oct 3 -->
-            <div class="day">
-                <div class="date">OCT 3</div>
-            </div>
+<!-- SEP 3 -->
 
-            <!-- Oct 4 -->
-            <div class="day">
-                <div class="date">OCT 4</div>
-                <div class="event deadline">
-                    FINAL CHECK
-                </div>
-            </div>
+<div class="day">
+    <div class="date">3</div>
+</div>
 
-            <!-- Oct 5 -->
-            <div class="day">
-                <div class="date">OCT 5</div>
-                <div class="event fund">
-                    MOBILIZATION FUND<br>
-                    5TH CYCLE
-                </div>
-            </div>
 
-        </div>
+<!-- SEP 4 -->
 
-        <div class="legend">
+<div class="day">
+    <div class="date">4</div>
+</div>
 
-            <div class="legend-item">
-                <div class="box fund-box"></div>
-                Mobilization Fund Cycle
-            </div>
 
-            <div class="legend-item">
-                <div class="box process-box"></div>
-                Processing / Preparation
-            </div>
+<!-- SEP 5 -->
 
-            <div class="legend-item">
-                <div class="box deadline-box"></div>
-                Deadline / Final Check
-            </div>
+<div class="day">
 
-        </div>
+    <div class="date">5</div>
 
-        <div class="info">
+    <div class="event crediting">
+        CREDITING DAY<br>
+        2nd Tranche of August MF Processing
+    </div>
 
-            <h2>Process POV</h2>
+    <div class="event processing">
+        PARTIAL FILE CREATION BEGINS
+    </div>
 
-            <p>
-                <strong>5th Cycle:</strong>
-                Requirements and validation are prepared before the
-                5th of the month, followed by post-processing and monitoring.
-            </p>
+</div>
 
-            <p>
-                <strong>20th Cycle:</strong>
-                Requirements are checked and validated before the
-                20th, followed by post-processing and monitoring.
-            </p>
 
-            <p>
-                <strong>Next Cycle:</strong>
-                Preparation for the succeeding 5th cycle begins toward
-                the end of the month.
-            </p>
+<!-- SEP 6 -->
 
-        </div>
+<div class="day">
+    <div class="date">6</div>
+    <div class="event processing">
+        Partial File Creation
+    </div>
+</div>
+
+
+<!-- SEP 7 -->
+
+<div class="day">
+    <div class="date">7</div>
+    <div class="event processing">
+        Partial File Creation
+    </div>
+</div>
+
+
+<!-- SEP 8 -->
+
+<div class="day">
+    <div class="date">8</div>
+    <div class="event processing">
+        Partial File Creation
+    </div>
+</div>
+
+
+<!-- SEP 9 -->
+
+<div class="day">
+    <div class="date">9</div>
+    <div class="event processing">
+        Finalize Partial File
+    </div>
+</div>
+
+
+<!-- SEP 10 -->
+
+<div class="day">
+
+    <div class="date">10</div>
+
+    <div class="event hr">
+        SUBMISSION TO CMU SUPERVISOR
+        <br><br>
+        Funding Routing + HR Transmittal Basis
+    </div>
+
+</div>
+
+
+<!-- SEP 11 -->
+
+<div class="day">
+
+    <div class="date">11</div>
+
+    <div class="event hr">
+        CMU SUP → HR
+        <br><br>
+        Partial Masterfile Released
+        <br>
+        Qualified / Not Qualified
+    </div>
+
+</div>
+
+
+<!-- SEP 12 -->
+
+<div class="day">
+
+    <div class="date">12</div>
+
+    <div class="event sales">
+        SALES CONCERN WINDOW
+        <br><br>
+        Correction • Adjustment • Additional • Removal
+    </div>
+
+    <div class="event invoice">
+        Invoice Preparation
+    </div>
+
+</div>
+
+
+<!-- SEP 13 -->
+
+<div class="day">
+
+    <div class="date">13</div>
+
+    <div class="event sales">
+        SALES ENDORSEMENT WINDOW
+    </div>
+
+    <div class="event invoice">
+        Invoice Preparation
+    </div>
+
+</div>
+
+
+<!-- SEP 14 -->
+
+<div class="day">
+
+    <div class="date">14</div>
+
+    <div class="event invoice">
+        INVOICE SUBMISSION
+        <br><br>
+        Qualified Sellers from Partial File
+    </div>
+
+    <div class="event hr">
+        HR FINDINGS RECEIVED
+    </div>
+
+</div>
+
+
+<!-- SEP 15 -->
+
+<div class="day">
+
+    <div class="date">15</div>
+
+    <div class="event validation">
+        CMU SPECIALIST
+        <br>
+        Invoice Checking
+    </div>
+
+</div>
+
+
+<!-- SEP 16 -->
+
+<div class="day">
+
+    <div class="date">16</div>
+
+    <div class="event validation">
+        Invoice Checking
+        <br>
+        + HR Findings Integration
+    </div>
+
+</div>
+
+
+<!-- SEP 17 -->
+
+<div class="day">
+
+    <div class="date">17</div>
+
+    <div class="event hr">
+        FINAL FILE SUBMISSION TO HR
+        <br><br>
+        Valid Invoice from Compliance
+    </div>
+
+</div>
+
+
+<!-- SEP 18 -->
+
+<div class="day">
+
+    <div class="date">18</div>
+
+    <div class="event validation">
+        HR FINAL WAVE
+        <br>
+        VALIDATION
+    </div>
+
+</div>
+
+
+<!-- SEP 19 -->
+
+<div class="day">
+
+    <div class="date">19</div>
+
+    <div class="event validation">
+        HR FINAL WAVE
+        <br>
+        VALIDATION
+    </div>
+
+</div>
+
+
+<!-- SEP 20 -->
+
+<div class="day">
+
+    <div class="date">20</div>
+
+    <div class="event crediting">
+        FINAL LIST
+        <br><br>
+        Additional / Removal
+        <br>
+        Consolidated Final List
+        <br>
+        Findings to Sales
+        <br><br>
+        ★ CREDITING DAY ★
+        <br>
+        1st Tranche — September MF
+    </div>
+
+</div>
+
+
+<!-- SEP 21 -->
+
+<div class="day">
+
+    <div class="date">21</div>
+
+    <div class="event processing">
+        Post-Cycle Monitoring
+    </div>
+
+</div>
+
+
+<!-- SEP 22 -->
+
+<div class="day">
+    <div class="date">22</div>
+</div>
+
+
+<!-- SEP 23 -->
+
+<div class="day">
+    <div class="date">23</div>
+</div>
+
+
+<!-- SEP 24 -->
+
+<div class="day">
+    <div class="date">24</div>
+</div>
+
+
+<!-- SEP 25 -->
+
+<div class="day">
+    <div class="date">25</div>
+</div>
+
+
+<!-- SEP 26 -->
+
+<div class="day">
+    <div class="date">26</div>
+</div>
+
+
+<!-- SEP 27 -->
+
+<div class="day">
+    <div class="date">27</div>
+</div>
+
+
+<!-- SEP 28 -->
+
+<div class="day">
+    <div class="date">28</div>
+</div>
+
+
+<!-- SEP 29 -->
+
+<div class="day">
+    <div class="date">29</div>
+</div>
+
+
+<!-- SEP 30 -->
+
+<div class="day">
+
+    <div class="date">30</div>
+
+    <div class="event accreditation">
+        PREPARATION FOR NEXT CYCLE
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- SEPTEMBER DETAILS -->
+
+<div class="details">
+
+<h2>September 20 Cycle — Process POV</h2>
+
+
+<div class="process-card">
+
+<div class="process-header">
+SEP 2 — ACCREDITATION SUBMISSION
+</div>
+
+<div class="process-body">
+
+<strong>Source:</strong> Qualified database from August 16–30 submission.
+
+<br><br>
+
+<strong>Purpose:</strong>
+
+<ul>
+<li>Submit accreditation database.</li>
+<li>Establish the qualified population for the processing cycle.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="process-card">
+
+<div class="process-header">
+SEP 5–9 — PARTIAL FILE CREATION
+</div>
+
+<div class="process-body">
+
+<strong>Responsible:</strong> CMU Specialist / Cost Team
+
+<ul>
+<li>Create partial file.</li>
+<li>Prepare invoice compliance requirements.</li>
+<li>Support Sales Team preparation.</li>
+<li>Provide basis for Cost Management Supervisor funding.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="process-card">
+
+<div class="process-header">
+SEP 10–11 — FUNDING ROUTING & HR TRANSMITTAL
+</div>
+
+<div class="process-body">
+
+<strong>SEP 10:</strong>
+
+<ul>
+<li>Submit to CMU Supervisor for funding routing.</li>
+<li>Use file as basis for HR transmittal.</li>
+<li>Prepare Wave 1 assessment from CMU Specialist Masterfile.</li>
+</ul>
+
+<strong>SEP 11:</strong>
+
+<ul>
+<li>CMU Supervisor submits to HR.</li>
+<li>CMU Specialist releases partial Masterfile.</li>
+<li>Sales receives Qualified / Not Qualified list.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="process-card">
+
+<div class="process-header">
+SEP 12–13 — SALES ENDORSEMENT & INVOICE PREPARATION WINDOW
+</div>
+
+<div class="process-body">
+
+<strong>Sales Team:</strong>
+
+<ul>
+<li>Endorse concerns to CMU Specialist.</li>
+<li>Request corrections.</li>
+<li>Request adjustments.</li>
+<li>Request additional sellers.</li>
+<li>Request removal of sellers.</li>
+<li>Prepare invoices for submission.</li>
+</ul>
+
+<strong>CMU Specialist:</strong>
+
+<ul>
+<li>Respond to Sales concerns.</li>
+<li>Coordinate corrections and adjustments.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="process-card">
+
+<div class="process-header">
+SEP 14–16 — INVOICE COMPLIANCE CHECKING
+</div>
+
+<div class="process-body">
+
+<ul>
+<li>Submit invoices from qualified sellers.</li>
+<li>Receive HR findings from the partial file.</li>
+<li>CMU Specialist checks invoice submissions.</li>
+<li>HR findings are integrated into invoice checking.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="process-card">
+
+<div class="process-header">
+SEP 17–20 — FINAL HR VALIDATION
+</div>
+
+<div class="process-body">
+
+<ul>
+<li>Sep 17 — Submit final file to HR with valid compliance invoices.</li>
+<li>Sep 18–20 — HR conducts final wave of validation.</li>
+<li>Sep 20 — CMU receives final additions/removals.</li>
+<li>Sep 20 — Consolidated final list and findings are provided to Sales.</li>
+<li>Sep 20 — Crediting Day.</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= OCTOBER 5 ================= -->
+
+<div id="oct5" class="cycle" style="display:none;">
+
+<div class="cycle-title">
+
+    <h2>OCTOBER 5, 2026</h2>
+
+    <p>
+        Mobilization Fund Processing — October 5 Cycle
+    </p>
+
+</div>
+
+
+<div class="calendar-title">
+    SEPTEMBER – OCTOBER 5, 2026 PROCESS CALENDAR
+</div>
+
+
+<div class="weekdays">
+
+    <div class="weekday">SUN</div>
+    <div class="weekday">MON</div>
+    <div class="weekday">TUE</div>
+    <div class="weekday">WED</div>
+    <div class="weekday">THU</div>
+    <div class="weekday">FRI</div>
+    <div class="weekday">SAT</div>
+
+</div>
+
+
+<div class="days">
+
+
+<!-- SEP 13 -->
+<div class="day empty"></div>
+
+<!-- SEP 14 -->
+<div class="day empty"></div>
+
+
+<!-- SEP 15 -->
+
+<div class="day">
+    <div class="date">SEP 15</div>
+</div>
+
+
+<!-- SEP 16 -->
+
+<div class="day">
+    <div class="date">SEP 16</div>
+</div>
+
+
+<!-- SEP 17 -->
+
+<div class="day">
+
+    <div class="date">SEP 17</div>
+
+    <div class="event accreditation">
+        ACCREDITATION
+        <br>
+        Submission of Database
+        <br>
+        Qualified from Sep 1–15
+    </div>
+
+</div>
+
+
+<!-- SEP 18 -->
+
+<div class="day">
+    <div class="date">SEP 18</div>
+</div>
+
+
+<!-- SEP 19 -->
+
+<div class="day">
+    <div class="date">SEP 19</div>
+</div>
+
+
+<!-- SEP 20 -->
+
+<div class="day">
+    <div class="date">SEP 20</div>
+</div>
+
+
+<!-- SEP 21 -->
+
+<div class="day">
+
+    <div class="date">SEP 21</div>
+
+    <div class="event processing">
+        PARTIAL FILE CREATION
+    </div>
+
+</div>
+
+
+<!-- SEP 22 -->
+
+<div class="day">
+
+    <div class="date">SEP 22</div>
+
+    <div class="event processing">
+        PARTIAL FILE CREATION
+    </div>
+
+</div>
+
+
+<!-- SEP 23 -->
+
+<div class="day">
+
+    <div class="date">SEP 23</div>
+
+    <div class="event processing">
+        FINALIZE PARTIAL FILE
+    </div>
+
+</div>
+
+
+<!-- SEP 24 -->
+
+<div class="day">
+
+    <div class="date">SEP 24</div>
+
+    <div class="event hr">
+        SUBMISSION TO CMU SUPERVISOR
+        <br><br>
+        Funding Routing
+        <br>
+        + HR Transmittal Basis
+    </div>
+
+</div>
+
+
+<!-- SEP 25 -->
+
+<div class="day">
+
+    <div class="date">SEP 25</div>
+
+    <div class="event hr">
+        CMU SUP → HR
+        <br><br>
+        Partial Masterfile
+        <br>
+        Qualified / Not Qualified
+    </div>
+
+</div>
+
+
+<!-- SEP 26 -->
+
+<div class="day">
+
+    <div class="date">SEP 26</div>
+
+    <div class="event sales">
+        SALES CONCERN WINDOW
+        <br>
+        Correction • Adjustment
+        <br>
+        Additional • Removal
+    </div>
+
+    <div class="event invoice">
+        Invoice Preparation
+    </div>
+
+</div>
+
+
+<!-- SEP 27 -->
+
+<div class="day">
+
+    <div class="date">SEP 27</div>
+
+    <div class="event sales">
+        SALES ENDORSEMENT WINDOW
+    </div>
+
+    <div class="event invoice">
+        Invoice Preparation
+    </div>
+
+</div>
+
+
+<!-- SEP 28 -->
+
+<div class="day">
+
+    <div class="date">SEP 28</div>
+
+    <div class="event invoice">
+        INVOICE SUBMISSION
+        <br><br>
+        Qualified Sellers
+    </div>
+
+    <div class="event hr">
+        HR FINDINGS RECEIVED
+    </div>
+
+</div>
+
+
+<!-- SEP 29 -->
+
+<div class="day">
+
+    <div class="date">SEP 29</div>
+
+    <div class="event validation">
+        CMU SPECIALIST
+        <br>
+        Invoice Checking
+    </div>
+
+</div>
+
+
+<!-- SEP 30 -->
+
+<div class="day">
+
+    <div class="date">SEP 30</div>
+
+    <div class="event validation">
+        Invoice Checking
+        <br>
+        + HR Findings
+    </div>
+
+</div>
+
+
+<!-- OCT 1 -->
+
+<div class="day">
+
+    <div class="date">OCT 1</div>
+
+    <div class="event hr">
+        FINAL FILE SUBMISSION TO HR
+        <br><br>
+        Valid Compliance Invoice
+    </div>
+
+</div>
+
+
+<!-- OCT 2 -->
+
+<div class="day">
+
+    <div class="date">OCT 2</div>
+
+    <div class="event validation">
+        HR FINAL WAVE
+        <br>
+        VALIDATION
+    </div>
+
+</div>
+
+
+<!-- OCT 3 -->
+
+<div class="day">
+
+    <div class="date">OCT 3</div>
+
+    <div class="event validation">
+        HR FINAL WAVE
+        <br>
+        VALIDATION
+    </div>
+
+</div>
+
+
+<!-- OCT 4 -->
+
+<div class="day">
+
+    <div class="date">OCT 4</div>
+
+    <div class="event validation">
+        HR FINAL WAVE
+        <br>
+        FINAL CHECK
+    </div>
+
+</div>
+
+
+<!-- OCT 5 -->
+
+<div class="day">
+
+    <div class="date">OCT 5</div>
+
+    <div class="event crediting">
+
+        ★ FINAL PROCESS ★
+
+        <br><br>
+
+        FINAL LIST
+        <br>
+        Additional / Removal
+
+        <br><br>
+
+        Consolidated Final List
+        <br>
+        Findings to Sales
+
+        <br><br>
+
+        ★ CREDITING DAY ★
 
     </div>
 
 </div>
+
+
+</div>
+
+
+<!-- OCTOBER DETAILS -->
+
+<div class="details">
+
+<h2>October 5 Cycle — Process POV</h2>
+
+
+<div class="process-card">
+
+<div class="process-header">
+SEP 17 — ACCREDITATION SUBMISSION
+</div>
+
+<div class="process-body">
+
+<strong>Source:</strong> Qualified database from September 1–15 submission.
+
+<ul>
+<li>Submit accreditation database.</li>
+<li>Establish qualified population for October 5 MF processing.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="process-card">
+
+<div class="process-header">
+SEP 21–23 — PARTIAL FILE CREATION
+</div>
+
+<div class="process-body">
+
+<ul>
+<li>CMU Specialist creates partial file.</li>
+<li>Prepare invoice compliance requirements.</li>
+<li>Support Sales Team preparation.</li>
+<li>Provide basis for Cost Management Supervisor funding.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="process-card">
+
+<div class="process-header">
+SEP 24–25 — FUNDING ROUTING & MASTERFILE
+</div>
+
+<div class="process-body">
+
+<strong>SEP 24:</strong>
+
+<ul>
+<li>Submission to CMU Supervisor for funding routing.</li>
+<li>Basis for HR transmittal.</li>
+<li>Wave 1 assessment from pre-qualified CMU Specialist Masterfile.</li>
+</ul>
+
+<strong>SEP 25:</strong>
+
+<ul>
+<li>CMU Supervisor submits to HR.</li>
+<li>CMU Specialist releases Partial Masterfile.</li>
+<li>Sales receives Qualified / Not Qualified list.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="process-card">
+
+<div class="process-header">
+SEP 26–27 — SALES CONCERN & INVOICE PREPARATION
+</div>
+
+<div class="process-body">
+
+<ul>
+<li>Sales endorses concerns to CMU Specialist.</li>
+<li>Correction requests.</li>
+<li>Adjustment requests.</li>
+<li>Additional seller requests.</li>
+<li>Removal requests.</li>
+<li>Invoice preparation window.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="process-card">
+
+<div class="process-header">
+SEP 28–30 — INVOICE SUBMISSION & CHECKING
+</div>
+
+<div class="process-body">
+
+<ul>
+<li>Sep 28 — Invoice submission.</li>
+<li>Receive HR findings from partial file.</li>
+<li>Sep 29–30 — CMU Specialist checks invoice submissions.</li>
+<li>HR findings are integrated into invoice validation.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="process-card">
+
+<div class="process-header">
+OCT 1–5 — FINAL HR VALIDATION & CREDITING
+</div>
+
+<div class="process-body">
+
+<ul>
+<li>Oct 1 — Submit final file to HR with valid compliance invoices.</li>
+<li>Oct 2–5 — HR final wave of validation.</li>
+<li>Oct 5 — CMU receives final additional/removal list.</li>
+<li>Oct 5 — Consolidated final list and findings provided to Sales.</li>
+<li>Oct 5 — Crediting Day.</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LEGEND -->
+
+<div class="legend">
+
+<div class="legend-item">
+    <div class="legend-box accreditation"></div>
+    Accreditation
+</div>
+
+<div class="legend-item">
+    <div class="legend-box processing"></div>
+    CMU Processing
+</div>
+
+<div class="legend-item">
+    <div class="legend-box hr"></div>
+    HR / Masterfile
+</div>
+
+<div class="legend-item">
+    <div class="legend-box sales"></div>
+    Sales Window
+</div>
+
+<div class="legend-item">
+    <div class="legend-box invoice"></div>
+    Invoice Compliance
+</div>
+
+<div class="legend-item">
+    <div class="legend-box validation"></div>
+    Validation
+</div>
+
+<div class="legend-item">
+    <div class="legend-box crediting"></div>
+    Crediting Day
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="footer">
+
+    CMU Internal Process POV • Mobilization Fund Processing Calendar • 2026
+
+</div>
+
+</div>
+
+
+<script>
+
+function showCycle(cycle, button) {
+
+    document.getElementById("sep20").style.display = "none";
+    document.getElementById("oct5").style.display = "none";
+
+    document.getElementById(cycle).style.display = "block";
+
+    document.querySelectorAll(".tab").forEach(function(tab) {
+        tab.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+}
+
+</script>
 
 </body>
 </html>
